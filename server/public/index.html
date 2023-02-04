@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- 
+  ==========================================================================================
+  ---------------------------------------- NIMBLE-------------------------------------------
+  - allow cors origin by updating config file [Nimble Streamer\conf\nimble.config]
+  1) Add These Lines To The File And Save
+  access_control_allow_origin = *
+  access_control_allow_credentials = true
+  access_control_expose_headers = Content-Length
+  access_control_allow_headers = Range
+  vod_chunk_duration = 2
+
+  2) create a live pull from wms panel taht listens to a rtmp interface
+
+  ==========================================================================================
+  -- Change The cdnStream Property In This File
+  ==========================================================================================
+  ==========================================================================================
+ -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="/js/viblast/viblast.js"></script>
+  </head>
+
+  <body>
+    <div id="player-container" style="width: 848px; height: 640px" />
+
+    <script>
+      Viblast.play({
+        container: "player-container",
+        channel: {
+          cdnStream:
+            "http://172.25.144.1:8081/nimble-stream/srream1/playlist.m3u8",
+        },
+      });
+    </script>
+  </body>
+</html>
