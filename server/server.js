@@ -19,8 +19,12 @@ app.use(
 app.use(express.static(path.join(__dirname, "/")));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/stream", function (req, res) {
+app.get("/stream-viblast", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/stream-sldp", function (req, res) {
+  res.sendFile(__dirname + "/public/SLDP.html");
 });
 
 app.listen(3000, () => {
