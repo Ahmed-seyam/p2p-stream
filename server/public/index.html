@@ -3,7 +3,7 @@
 <!-- 
   ==========================================================================================
   ---------------------------------------- NIMBLE-------------------------------------------
-  - allow cors origin by updating config file [Nimble Streamer\conf\nimble.config]
+  - allow cors origin by updating config file /etc/nimble/nimble.conf
   1) Add These Lines To The File And Save
   access_control_allow_origin = *
   access_control_allow_credentials = true
@@ -11,13 +11,21 @@
   access_control_allow_headers = Range
   vod_chunk_duration = 2
 
-  2) create a live pull from wms panel taht listens to a rtmp interface
+  2) create a live pull from wms panel that listens to a rtmp interface
 
   ==========================================================================================
   -- Change The cdnStream Property In This File
   ==========================================================================================
   ==========================================================================================
  -->
+
+<!-- 
+ ===========================================================================================
+ =============================== WebRTC ====================================================
+
+ doc
+  https://blog.wmspanel.com/2022/05/webrtc-publish-setup-nimble-streamer.html
+  -->
 
 <html lang="en">
   <head>
@@ -36,14 +44,22 @@
   <body>
     <div id="player-container" style="width: 848px; height: 640px" />
 
-    <script>
+    <video
+      autoplay
+      src="http://223.223.217.173:8081/pull-stream/str1/playlist.m3u8"
+      data-viblast-key="deaef842-6921-48db-9055-8082ff8e9f1d"
+      controls
+      width="640"
+    ></video>
+
+    <!-- <script>
       Viblast.play({
         container: "player-container",
         channel: {
           cdnStream:
-            "http://172.25.144.1:8081/nimble-stream/srream1/playlist.m3u8",
+            "http://192.168.1.6:8081/pull-stream/srream1/playlist.m3u8",
         },
       });
-    </script>
+    </script> -->
   </body>
 </html>
