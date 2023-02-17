@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      html {
+        font-family: Arial;
+      }
+
+      h3 {
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      #publishUrlWrp #publishUrl {
+        width: 500px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      #publishUrlWrp #publishBtn {
+        -webkit-appearance: none;
+        background-color: #fff;
+        color: black;
+        border: solid #ccc 1px;
+        font-size: 14px;
+        padding: 10px;
+        width: 100px;
+      }
+
+      #bandwidthWrp #bandwidth {
+        width: 100px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      #resolutionWrp #resolution {
+        width: 120px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      #localVideoWrp {
+        width: 627px;
+        background-color: #eee;
+        text-align: center;
+      }
+
+      #logs {
+        width: 607px;
+        height: 300px;
+        background-color: #eee;
+        font-size: 12px;
+        padding: 10px;
+        overflow-y: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>URL</h3>
+    <div id="publishUrlWrp">
+      <input
+        id="publishUrl"
+        value="https://uuggaa.com:8443/webrtc/demo/whip?whipauth=login:test123456"
+      />
+      <input type="button" id="publishBtn" value="Publish" />
+    </div>
+
+    <h3>Video Bandwidth Limit Kb</h3>
+    <div id="bandwidthWrp">
+      <input id="bandwidth" value="2000" />
+      kbps
+    </div>
+    <h3 style="display: none">Video Resolution</h3>
+    <div id="resolutionWrp" style="display: none">
+      <select id="resolution">
+        <option value="1920x1080">1920x1080</option>
+        <option value="1280x720" selected>1280x720</option>
+        <option value="640x480">640x480</option>
+        <option value="320x240">320x240</option>
+      </select>
+      <input type="checkbox" id="natural" checked onclick="onSwapRotation()" />
+      <label for="natural">Natural Video</label>
+      <input type="checkbox" id="videoRequired" checked />
+      <label for="videoRequired">Stream Video</label>
+      <input type="checkbox" id="audioRequired" checked />
+      <label for="audioRequired">Stream Audio</label>
+    </div>
+    <h3 style="display: none">Source</h3>
+    <div style="display: none">
+      <label for="videoSource">Video: </label>
+      <select id="videoSource"></select>
+    </div>
+    <h3>Local Video</h3>
+    <div id="localVideoWrp">
+      <video
+        id="localVideo"
+        class="rotatedVideo"
+        autoplay
+        muted
+        playsinline
+      ></video>
+      <br />
+    </div>
+    <h3>Logs</h3>
+    <div id="logs"></div>
+    <script type="module" src="./index.js"></script>
+
+    <script type="text/javascript"></script>
+  </body>
+</html>
